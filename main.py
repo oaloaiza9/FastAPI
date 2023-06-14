@@ -47,7 +47,7 @@ async def get_clientes():
 
 @app.post("/clientes")
 def agregar_cliente(documento:str = Form(...), nombres:str = Form(...), apellidos:str = Form(...)):
-    clientes.append(Cliente(documento, nombres, apellidos))
+    clientes.append(Cliente(documento=documento, nombres=nombres, apellidos=apellidos))
     return {"status":True, "message": "Cliente agregado correctamente"}
 
 @app.put("/clientes")
