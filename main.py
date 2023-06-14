@@ -46,22 +46,23 @@ async def get_clientes():
     return clientes
 
 @app.post("/clientes")
-def agregar_cliente(cliente: Cliente):
-    clientes.append(cliente)
-    return {"mensaje": "Cliente agregado correctamente"}
+def agregar_cliente(documento:str = Form(...), nombres:str = Form(...), apellidos:str = Form(...)):
+    clientes.append(Cliente(documento, nombres, apellidos))
+    return {"status":True, "message": "Cliente agregado correctamente"}
 
 @app.put("/clientes/{documento}")
-def editar_cliente(documento: str, cliente: Cliente):
+def editar_cliente(documento:str = Form(...), nombres:str = Form(...), apellidos:str = Form(...)):
     for i, c in enumerate(clientes):
         if c.documento == documento:
-            clientes[i] = cliente
-            return {"mensaje": "Cliente editado correctamente"}
-    return {"error": "Cliente no encontrado"}
+            clientes[i].nombres = nombres
+            clientes[i].apellidos = apellidos
+            return {"status":True, "message": "Cliente editado correctamente"}
+    return {"status":False, "message": "Cliente no encontrado"}
 
 @app.delete("/clientes/{documento}")
 def eliminar_cliente(documento: str):
     for i, c in enumerate(clientes):
         if c.documento == documento:
             clientes.pop(i)
-            return {"mensaje": "Cliente eliminado correctamente"}
+            return {"message": "Cliente eliminado correctamente"}
     return {"error": "Cliente no encontrado"}
