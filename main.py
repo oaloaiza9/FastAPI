@@ -8,7 +8,10 @@ class Cliente(BaseModel):
     nombres: str
     apellidos: str
 
-clientes = []
+clientes = [
+    Cliente(documento="12345678", nombres="John", apellidos="Doe"),
+    Cliente(documento="87654321", nombres="Jane", apellidos="Smith")
+]
 
 @app.get("/clientes")
 async def get_clientes():
