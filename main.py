@@ -64,5 +64,5 @@ def eliminar_cliente(documento: str = Form(...)):
     for i, c in enumerate(clientes):
         if c.documento == documento:
             clientes.pop(i)
-            return {"message": "Cliente eliminado correctamente"}
-    return {"error": "Cliente no encontrado"}
+            return {"status":True, "message": "Cliente eliminado correctamente"}
+    return {"status":False, "message": "Cliente no encontrado"}
