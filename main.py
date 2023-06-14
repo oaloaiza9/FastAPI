@@ -34,9 +34,9 @@ async def get_usuarios():
     return usuarios
 
 @app.post("/login")
-def login(usuario: Usuario):
+def login(email:str, password:str):
     for existing_user in usuarios:
-        if existing_user.email == usuario.email and existing_user.password == encrypt_md5(usuario.password):
+        if existing_user.email == email and existing_user.password == encrypt_md5(password):
             return { "status":True, "message": "Login successful"}
     return {"status":False, "message": "Invalid email or password"}
 
