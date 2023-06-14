@@ -10,7 +10,7 @@ def encrypt_md5(text):
 
 app = FastAPI()
 
-class Usuarios(BaseModel):
+class Usuario(BaseModel):
     email: str
     password: str
 
@@ -20,7 +20,7 @@ class Cliente(BaseModel):
     apellidos: str
 
 usuarios = [
-    Usuarios(email="andres@mail.com", password=encrypt_md5("12345"))
+    Usuario(email="andres@mail.com", password=encrypt_md5("12345"))
 ]
 
 clientes = [
@@ -32,6 +32,13 @@ clientes = [
 @app.get("/usuarios")
 async def get_usuarios():
     return usuarios
+
+@app.post("/login")
+def login(usuario: Usuario):
+    for existing_user in usuarios:
+        if existing_user.email == user.email and encrypt_md5(existing_user.password) == user.password:
+            return { "status":True, "message": "Login successful"}
+    return {"status":False, "message": "Invalid email or password"}
 
 @app.get("/clientes")
 async def get_clientes():
