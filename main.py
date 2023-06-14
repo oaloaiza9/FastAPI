@@ -50,7 +50,7 @@ def agregar_cliente(documento:str = Form(...), nombres:str = Form(...), apellido
     clientes.append(Cliente(documento, nombres, apellidos))
     return {"status":True, "message": "Cliente agregado correctamente"}
 
-@app.put("/clientes/{documento}")
+@app.put("/clientes")
 def editar_cliente(documento:str = Form(...), nombres:str = Form(...), apellidos:str = Form(...)):
     for i, c in enumerate(clientes):
         if c.documento == documento:
@@ -59,8 +59,8 @@ def editar_cliente(documento:str = Form(...), nombres:str = Form(...), apellidos
             return {"status":True, "message": "Cliente editado correctamente"}
     return {"status":False, "message": "Cliente no encontrado"}
 
-@app.delete("/clientes/{documento}")
-def eliminar_cliente(documento: str):
+@app.delete("/clientes")
+def eliminar_cliente(documento: str = Form(...)):
     for i, c in enumerate(clientes):
         if c.documento == documento:
             clientes.pop(i)
