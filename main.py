@@ -10,7 +10,8 @@ class Cliente(BaseModel):
 
 clientes = [
     Cliente(documento="12345678", nombres="John", apellidos="Doe"),
-    Cliente(documento="87654321", nombres="Jane", apellidos="Smith")
+    Cliente(documento="87654321", nombres="Jane", apellidos="Smith"),
+    Cliente(documento="12345", nombres="Juan", apellidos="Perez")
 ]
 
 @app.get("/clientes")
