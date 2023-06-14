@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
+from fastapi import Form
 import hashlib
 
 def encrypt_md5(text):
@@ -34,7 +35,7 @@ async def get_usuarios():
     return usuarios
 
 @app.post("/login")
-def login(email:str, password:str):
+def login(email:str = Form(...), password:str = Form(...)):
     for existing_user in usuarios:
         if existing_user.email == email and existing_user.password == encrypt_md5(password):
             return { "status":True, "message": "Login successful"}
