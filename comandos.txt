@@ -20,4 +20,7 @@ Ubicarnos dentro del directorio del proyecto
 cd xxxxxxxxxxxxxxxxx
 
 Ejecutar API en segundo plano
-nohup uvicorn main:app --host 0.0.0.0 --port 8000 --reload > /dev/null 2>&1 &
+	nohup uvicorn main:app --host 0.0.0.0 --port 8000 --reload > /dev/null 2>&1 &
+
+Ejecutar API en terminal para hacer seguimiento
+uvicorn main:app --host 0.0.0.0 --port 8000 --reload
