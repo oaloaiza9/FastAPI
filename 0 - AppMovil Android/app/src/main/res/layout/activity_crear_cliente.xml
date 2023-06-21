@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CrearCliente"
+    android:orientation="vertical"
+    android:padding="30dp"
+    android:gravity="center"
+    >
+
+    <TextView
+        android:id="@+id/etiquetaTitulo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="CREAR CLIENTE"
+        android:gravity="center"
+        android:textColor="@color/blue"
+        android:textSize="40sp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/etqDocumento"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ingrese un Documento:"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:layout_marginTop="20dp"
+        />
+
+    <EditText
+        android:id="@+id/campoDocumento"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="20dp"
+        android:inputType="number"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/etqNombres"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ingrese Nombres:"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:layout_marginTop="0dp"
+        />
+
+    <EditText
+        android:id="@+id/campoNombres"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="20dp"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/etqApellidos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ingrese Apellidos:"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:layout_marginTop="0dp"
+        />
+
+    <EditText
+        android:id="@+id/campoApellidos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="20dp"
+        android:text="" />
+
+    <Button
+        android:id="@+id/btnCrear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="crearCliente"
+        android:text="Crear"
+        android:textSize="30sp"
+        android:layout_gravity="center"
+        />
+
+</LinearLayout>
